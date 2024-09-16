@@ -1,13 +1,242 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+    margin: 0;
+    padding: 0;
+}
+.auth-bg{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(62, 62, 62);
+    position: fixed;
+    color: rgb(187, 185, 185);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.auth-box{
+    background-color: black;
+    border: 2px solid white;
+    height: 50vh;
+    width: 70vw;
+    border-radius: 20px;
+    position: relative;
+    top: 18%;
+    left: 14%;
 }
+
+.auth-options{
+    display: flex;
+    background-color: rgb(62, 62, 62);
+    height: 5vh;
+    width: 70vw;
+    position: relative;
+    top: 19%;
+    left: 14%;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.lang{
+    margin-left: 24px;
+    width: 56vw;
+}
+
+.other{
+    display: flex;
+    gap: 1vw;
+}
+
+.sign-options{
+    display: flex;
+    margin-top: 5vh;
+    margin-left: 10vw;
+    width: 70%;
+    border-radius: 20px;
+}
+
+.login{
+    width: 48%;
+    height: 4vh;
+    background-color: rgb(62, 62, 62);
+    color: white;
+    margin-left: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.sign-up{
+    width: 50%;
+    height: 4vh;
+    background-color: white;
+    color: black;
+    margin-right: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.login-body{
+    display: flex;
+    height: 38vh;
+    width: 68vw;
+    margin-left: 1vw;
+    margin-top: 1vh;
+}
+.signup-body{
+    display: flex;
+    height: 38vh;
+    width: 68vw;
+    margin-left: 1vw;
+    margin-top: 1vh;
+}
+
+.login-show{
+    width: 45%;
+}
+.signup-show{
+    width: 25%;
+}
+
+.login-show-icon{
+    height: 7vh;
+    width: auto;
+    border-radius: 100px;
+    margin-top: 2vh;
+    margin-left: 4vw;
+}
+.signup-show-icon{
+    height: 7vh;
+    width: auto;
+    border-radius: 100px;
+    margin-top: 2vh;
+    margin-left: 4vw;
+}
+
+.login-show-data{
+    margin-top: 2vh;
+    margin-left: 4vw;
+    color: white;
+}
+.signup-show-data{
+    margin-top: 2vh;
+    margin-left: 4vw;
+    color: white;
+}
+
+.login-form{
+    width: 55%;
+}
+
+.signup-form{
+    width: 75%;
+    display: flex;
+}
+
+.signup-form form{
+    display: flex;
+}
+
+.signup-form-left{
+    width: 25vw;
+}
+.signup-form-right{
+    width: 25vw;
+}
+
+.login-form-input{
+    width: 80%;
+    height: 3vh;
+    border-radius: 7px;
+    color: white;
+    background-color: rgb(62, 62, 62);
+}
+
+.login-form-submit{
+    margin-top: 7vh;
+    margin-left: 19vw;
+    display: flex;
+    gap: 1vw;
+}
+
+.login-submit-clear{
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    height: 5vh;
+    width: 5vw;
+    font-size: 16px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-submit-clear:hover{
+    background-color: rgb(62, 62, 62);
+}
+
+.login-submit-submit{
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+    height: 5vh;
+    width: 5vw;
+    font-size: 16px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-submit-submit:hover{
+    font-size: 1.1em;
+}
+
+.signup-form-submit{
+    margin-top: 7vh;
+    margin-left: 7vw;
+    display: flex;
+    gap: 1vw;
+}
+.signup-form-submit-next{
+    margin-top: 19vh;
+    margin-left: 7vw;
+    display: flex;
+    gap: 1vw;
+}
+
+.signup-submit-clear{
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    height: 5vh;
+    width: 5vw;
+    font-size: 16px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-submit-clear:hover{
+    background-color: rgb(62, 62, 62);
+}
+
+.signup-submit-next{
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+    height: 5vh;
+    width: 5vw;
+    font-size: 16px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-submit-next:hover{
+    font-size: 1.1em;
+}
+
+
