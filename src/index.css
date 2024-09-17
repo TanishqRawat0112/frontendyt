@@ -431,11 +431,64 @@ body{
     border: 2px solid black;
   } */
 
-  .channel-details img{
-        height: 25vh;
-        width: 14vw;
-        border-radius: 1000px;
+  .channel-details{
+    display: flex;
+    width: 80vw;
+    gap: 20px;
+    margin-top: 2px;
+    margin-left: 20px;
+    /* border: 2px solid white; */
+    flex-direction: column;
   }
+
+  .channel-details-cover{
+        height: 20vh;
+        width: 75vw;
+        border-radius: 30px;
+  }
+
+  .channel-details-avatar img{
+    height: 25vh;
+    width: 25vh;
+    border-radius: 1000px;
+  }
+
+  .channel-details-info{
+    display: flex;
+    gap: 20px;
+  }
+
+  /* .channel-details-info-about{
+    border: 2px solid white;
+  } */
+  .channel-details-info-about-fullname{
+    margin: 0;
+    font-size: 52px;
+    font-weight: bolder;
+  }
+
+  .channel-details-info-about-username{
+    color: rgb(159, 158, 158);
+    font-size: 14px;
+  }
+
+  .channel-details-info-about-buttons{
+    margin-top: 3vh;
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .channel-details-info-about-buttons div{
+    background-color: rgb(46, 45, 45);
+    padding: 10px;
+    border-radius: 15px;
+  }
+  .channel-details-info-about-buttons div:hover{
+    background-color: rgb(74, 73, 73);
+  }
+
+
 
 
   
