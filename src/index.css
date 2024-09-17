@@ -488,6 +488,36 @@ body{
     background-color: rgb(74, 73, 73);
   }
 
+  .channel-details-options{
+    display: flex;
+    /* gap: 3vw; */
+    margin-top: 2vh;
+    color: rgb(159, 158, 158);
+  }
+
+  /* .channel-details-options-playlists{
+
+  } */
+
+  .channel-details-options-playlists-selected{
+    color:white;
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+
+  .channel-details-options-community-selected{
+    color:white;
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+  
+  .channel-details-options-container{
+    display: flex;
+    gap: 2vw;
+    margin-left: 4vw;
+    cursor: pointer;
+  }
+
 
 
 

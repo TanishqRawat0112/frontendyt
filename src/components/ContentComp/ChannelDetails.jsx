@@ -1,4 +1,9 @@
+import { useState } from "react";
+
 const UserDetails = ({userData}) => {
+    const [isPlaylistSelected, setIsPlaylistSelected] = useState(true);
+    const [isCommunitySelected, setIsCommunitySelected] = useState(false);
+    // const [isSearchSelected, setIsSearchSelected] = useState(false);
     return (
        <div className="channel-details-main-content">
             <div className="channel-details">
@@ -9,7 +14,7 @@ const UserDetails = ({userData}) => {
                     </div>
                     <div className="channel-details-info-about">
                         <h1 className="channel-details-info-about-fullname">{userData[0]}</h1>
-                        <p className="channel-details-info-about-username">@{userData[1]}  *0 subscriber</p>
+                        <p className="channel-details-info-about-username">@{userData[1]} • 1M subscribers</p>
                         <p style={{color:'rgb(159, 158, 158)'}}>More about this channel ...<span style={{color:'white'}}>more</span></p>
 
                         <div className="channel-details-info-about-buttons">
@@ -24,9 +29,27 @@ const UserDetails = ({userData}) => {
                 </div>
             </div>
             <div className="channel-details-options">
-                PLAYLIST
-                COMMUNITY
-                SEARCH
+                <div className="channel-details-options-container">
+                    <div className={`${isPlaylistSelected ? "channel-details-options-playlists-selected":"channel-details-options-playlists"}`}
+                    onClick={()=>{
+                        setIsPlaylistSelected(true);
+                        setIsCommunitySelected(false);
+                    }}
+                    >
+                        Playlists
+                    </div>
+                    <div className={`${isCommunitySelected ? "channel-details-options-community-selected":"channel-details-options-community"}`} 
+                        onClick={()=>{
+                            setIsPlaylistSelected(false);
+                            setIsCommunitySelected(true);
+                        }}
+                    >
+                        Community
+                    </div>
+                    <div className="channel-details-options-search">
+                        SEARCH
+                    </div>
+                </div>
             </div>
        </div>  
      );
