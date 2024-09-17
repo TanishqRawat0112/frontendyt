@@ -1,6 +1,7 @@
+// import { set } from 'mongoose';
 import icon from '../assets/temp.jpeg';
 import { useState } from 'react';
-const Signup = () => {
+const Signup = ({setLogin}) => {
     const [next, setNext] = useState(false);
     const [fullname, setFullname] = useState("");
     const [username, setUsername] = useState("");
@@ -24,12 +25,12 @@ const Signup = () => {
         e.preventDefault();
 
         if(!fullname || !username || !email || !password || !confirmPassword || !avatar || !coverImage){
-            alert("All fields are required");
+            // alert("All fields are required");
             return;
         }
 
         if(password !== confirmPassword){
-            alert("Passwords do not match");
+            // alert("Passwords do not match");
             return;
         }
 
@@ -49,7 +50,8 @@ const Signup = () => {
 
             const data = await response.json();
             if(data.statusCode === 201){
-                alert('User registered successfully');
+                // alert('User registered successfully');
+                setLogin(false);
             }
         }catch(error){
             console.log("Error while sending the FE req : ",error);

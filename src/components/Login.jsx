@@ -1,14 +1,14 @@
 import icon from '../assets/temp.jpeg';
 import { useState } from 'react';
 
-const Login = () => {
+const Login = ({setLogin}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleFormSubmit = async(e)=>{
         e.preventDefault();
         if(!email || !password){
-            alert("All fields are required");
+            // alert("All fields are required");
             return;
         }
 
@@ -20,12 +20,14 @@ const Login = () => {
         try {
             const response = await fetch('http://localhost:8000/api/v1/users/login',{
                 method: 'POST',
+                credentials: 'include',
                 body: formData,
             });
 
             const data = await response.json();
             if(data.statusCode === 200){
-                alert('User logged In successfully');
+                // alert('User logged In successfully');
+                setLogin(false);
             }
         } catch (error) {
             console.log("Error : ",error);
@@ -60,7 +62,7 @@ const Login = () => {
                             Clear
                         </div>
                         <div className='login-submit-submit' onClick={handleFormSubmit}>
-                            login
+                            Login
                         </div>
                     </div>
                 </form>
