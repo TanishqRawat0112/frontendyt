@@ -1,4 +1,39 @@
+import { useState } from "react";
+
 const MainComp = ({userInfo}) => {
+    const [fullname, setFullname] = useState('tr');
+    const [username, setUsername] = useState("tr1");
+
+    const handleFormSubmit = async(e)=>{
+        e.preventDefault();
+        console.log("Fullname : ",fullname);
+        console.log("Username : ",username);
+        if(!fullname || !username){
+            return;
+        }
+        const formData = new FormData();
+        formData.append('fullname',fullname);
+        formData.append('username',username);
+        try {
+            const response = await fetch('http://localhost:8000/api/v1/users/update-details',{
+                method: 'PATCH', 
+                credentials: 'include',  
+                body: formData
+            });
+            console.log("Response : ",response); 
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            if(data.statusCode === 200){
+                // alert('User logged In successfully');
+                console.log("User updated successfully");
+                // setLogin(false);
+            }
+        } catch (error) {
+            console.log("Error : ",error);
+        }
+    }
     return ( 
         <div className="customise-channel-main-container">
             <header className="customise-channel-main-header">
@@ -20,7 +55,7 @@ const MainComp = ({userInfo}) => {
                     <div className="customise-channel-main-navbar-buttons-cancel">
                         Cancel
                     </div>
-                    <div className="customise-channel-main-navbar-buttons-publish">
+                    <div className="customise-channel-main-navbar-buttons-publish" onClick={handleFormSubmit}>
                         Publish
                     </div>
                 </div>
@@ -77,7 +112,7 @@ const MainComp = ({userInfo}) => {
                         Choose a channel name that represents you and your content. Changes made to your name and picture are visible only on YouTube and not other Google services. You can change your name twice in 14 days.
                         </div>
                         <div className="name-input">
-                            <input type="text" value={userInfo[1]} />
+                            <input type="text" value={fullname} onChange={(e)=>setFullname(e.target.value)}/>
                         </div>
                     </div>
                     <div className="name">
@@ -90,7 +125,7 @@ const MainComp = ({userInfo}) => {
                         Choose your unique handle by adding letters and numbers. You can change your handle back within 14 days. Handles can be changed twice every 14 days.
                         </div>
                         <div className="name-input">
-                            <input type="text" value={userInfo[0]} />
+                            <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)}  />
                         </div>
                     </div>
                     <div className="name">

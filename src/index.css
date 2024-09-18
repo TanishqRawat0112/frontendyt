@@ -585,6 +585,7 @@ body{
     gap: 2vw;
     /* border: 2px solid white; */
     width: 14vw;
+    border-radius: 7px;
   }
 
   .customise-channel-sidebar-bottom div:hover{
