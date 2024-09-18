@@ -539,7 +539,7 @@ body{
 
   .customise-channel-container{
     display: flex;
-    background-color: rgb(21, 21, 21);
+    background-color: rgb(34, 34, 34);
     border-top: 1px solid rgb(49, 49, 49);
   }
 
@@ -585,7 +585,14 @@ body{
     gap: 2vw;
     /* border: 2px solid white; */
     width: 14vw;
-    
+  }
+
+  .customise-channel-sidebar-bottom div:hover{
+    background-color: black;
+  }
+
+  .customise-channel-sidebar-middle-customisation{
+    background-color: black;
   }
 
   .customise-channel-sidebar-bottom div img{
@@ -604,6 +611,11 @@ body{
     gap: 2vw;
     /* border: 2px solid white; */
     width: 14vw;
+    border-radius: 10px;
+  }
+
+  .customise-channel-sidebar-middle div:hover{
+    background-color: black;
   }
 
   .customise-channel-sidebar-middle div img{
@@ -613,7 +625,207 @@ body{
     margin-top: 5%;
   }
 
+  /* main content  */
 
+  .customise-channel-main-container{
+    gap: 20px;
+    width: 82vw;
+    height: 86vh;
+    overflow: scroll;
+    /* position: fixed; */
+    /* margin-left: 2vw; */
+  }
+  .customise-channel-main-header{
+    margin: 4vh 3vw;
+    font-size: 24px;
+  }
+
+  .customise-channel-main-navbar{
+    display: flex;
+    gap: 2vw;
+    border-bottom: 2px solid rgb(49, 49, 49);
+    width: 97%;
+    position: sticky;
+    top:0;
+    z-index: 100;
+    background-color: rgb(34, 34, 34);
+    padding: 2vh;
+  }
+
+  .customise-channel-main-navbar-options{
+    display: flex;
+    gap: 2vw;
+    margin-left: 1vw;
+    width: 70%;
+    align-items: start;
+    margin-top: 2vh;
+  }
+
+  .customise-channel-main-navbar-options-profile{
+    text-decoration: underline;
+  }
+
+  .customise-channel-main-navbar-options-home-tab{
+    color: gray;
+  }
+
+  .customise-channel-main-navbar-options-home-tab:hover{
+    text-decoration: underline;
+    text-decoration-color: gray;
+  }
+
+  .customise-channel-main-navbar-buttons{
+    display: flex;
+    gap: 1vw;
+  }
+
+  .customise-channel-main-navbar-buttons div{
+    /* background-color: white; */
+    padding: 12px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  .customise-channel-main-navbar-buttons-viewChannel{
+    background-color: rgb(66, 65, 65);
+    color: white;
+    cursor: pointer;
+  }
+
+  .customise-channel-main-navbar-buttons-viewChannel:hover{
+    background-color: rgb(95, 93, 93);
+  }
+
+  .customise-channel-main-navbar-buttons-cancel{
+    background-color: rgb(66, 65, 65);
+    color: white;
+    cursor: pointer;
+  }
+
+  .customise-channel-main-navbar-buttons-cancel:hover{
+    background-color: rgb(95, 93, 93);
+  }
+
+  .customise-channel-main-navbar-buttons-publish{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .customise-channel-main-navbar-buttons-publish:hover{
+    background-color: rgb(215, 215, 215);
+  }
+
+  .customise-channel-form-container{
+    margin: 4vh;
+  }
+
+  .banner{
+    height: 30%;
+    width: 100%;
+    /* border: 2px solid white; */
+  }
+
+  .profileImage{
+    height: 30%;
+    width: 100%;
+    /* border: 2px solid white; */
+    margin-top: 4vh;
+  }
+
+  .banner-image{
+    display: flex;
+    height: 20vh;
+    width: 45vw;
+    gap: 2vw;
+    /* border: 2px solid white; */
+  }
+
+  .banner-image-img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .banner-image-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+
+  .banner-image-content-side-input{
+    padding-top: 2vh;
+    padding-left: 5vh;
+  }
+
+  .customise-form-para{
+    font-size: 13px;
+    color: gray;
+  }
+
+  .profile-image-img{
+    width: 87vw;
+    height: 100%;
+    background-color: black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-image-img img{
+    width: 40%;
+    height: 85%;
+    border-radius: 100px;
+  }
+
+  .name{
+    margin-top: 2vh;
+    width: 75%;
+  }
+
+  .name-heading{
+    margin-top: 4vh;
+    margin-bottom: 1vh;
+  }
+
+  .name-input input{
+    width: 100%;
+    height: 4vh;
+    border-radius: 7px;
+    color: white;
+    background-color: rgb(62, 62, 62);
+    border:none;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }
+
+  .name-input input:hover{
+    border: 1px solid rgb(240, 239, 239);
+  }
+
+    .name-input input:focus{
+        border: 1px solid white;
+    }
+
+    .name-input textarea{
+        width: 100%;
+        height: 18vh;
+        border-radius: 7px;
+        color: white;
+        background-color: rgb(62, 62, 62);
+        border:none;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+    }
+
+    .name-input textarea:hover{
+        border: 1px solid rgb(240, 239, 239);
+    }
+
+    .name-input textarea:focus{
+        border: 1px solid white;
+    }
 
 
   
