@@ -1,8 +1,20 @@
 import Search from './Search';
 import icon from '../../assets/temp.jpeg';
+import create from '../../assets/create.png';
+import notif from '../../assets/notif.png';
 import '../../index.css'; // Import the CSS file
+import { useState,useEffect } from 'react';
+import  fetchUserData  from '../../api/getUserData';
 
 const Navbar = () => {
+    const [userImage,setUserImage] = useState('');
+    useEffect(()=>{
+        const fetchUserImage = async () =>{
+            const tempImage = await fetchUserData();
+            setUserImage(tempImage[2]);
+        }
+        fetchUserImage();
+    },[]);
     return (
         <div className="navbar-container">
             {/* Start Section */}
@@ -27,9 +39,15 @@ const Navbar = () => {
 
             {/* End Section */}
             <div className="navbar-end">
-                <div className="navbar-item">create</div>
-                <div className="navbar-item">notification</div>
-                <div className="navbar-item">channel</div>
+                <div className="navbar-item">
+                    <img src={create} alt="create" className='navbar-item-opt' />
+                </div>
+                <div className="navbar-item">
+                <img src={notif} alt="notification" className='navbar-item-opt' />
+                </div>
+                <div className="navbar-item">
+                    <img src={userImage} alt="user" className='navbar-item-userImage'/>
+                </div>
             </div>
         </div>
     );

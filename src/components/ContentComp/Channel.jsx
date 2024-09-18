@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ChannelDetails from './ChannelDetails';
 
-const Channel = () => {
+const Channel = ({setCustomiseChannel}) => {
     const [userData, setUserData] = useState([]);
     const [fetched, setFetched] = useState(false);
 
@@ -40,7 +40,7 @@ const Channel = () => {
         <>
             {fetched
             ?
-                <ChannelDetails userData={userData}  />
+                <ChannelDetails userData={userData} setCustomiseChannel={setCustomiseChannel}  />
             :
                 <h1>
                     You are Not Logged In 

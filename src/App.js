@@ -6,8 +6,10 @@ import MainAuth from "./components/MainAuth";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Test from './components/FixedComp/Test';
 import Channel from './components/ContentComp/Channel';
+import CustomiseChannel from './components/CustomiseChannel/CustomiseChannel';
 function App() {
   const [login, setLogin] = useState(false);
+  const [customiseChannel,setCustomiseChannel] = useState(false);
   
   return (
     <>
@@ -15,14 +17,14 @@ function App() {
               <Router>
         <div>
           <Navbar />
-          <div className="app-layout">
+          {!customiseChannel ? <div className="app-layout">
             <SideNavbar setLogin={setLogin} />
             <div className="app-main-content">
                 <Routes>
                       <Route path="/" element={<Test />} />
                       <Route path="/shorts" element={<Test />} />
                       <Route path="/subscriptions" element={<Test />} />
-                      <Route path="/user/channel" element={<Channel />} />
+                      <Route path="/user/channel" element={<Channel setCustomiseChannel={setCustomiseChannel} />} />
                       <Route path="/history" element={<Test />} />
                       <Route path="/playlist" element={<Test />} />
                       <Route path="/your-videos" element={<Test />} />
@@ -31,6 +33,7 @@ function App() {
                   </Routes>
             </div>
           </div>
+          : <CustomiseChannel setCustomiseChannel={setCustomiseChannel} />}
         </div>
                 </Router>
       ) : (

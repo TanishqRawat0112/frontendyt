@@ -1,8 +1,10 @@
 import { useState } from "react";
 
-const UserDetails = ({userData}) => {
+const UserDetails = ({userData,setCustomiseChannel}) => {
     const [isPlaylistSelected, setIsPlaylistSelected] = useState(true);
     const [isCommunitySelected, setIsCommunitySelected] = useState(false);
+
+    
     // const [isSearchSelected, setIsSearchSelected] = useState(false);
     return (
        <div className="channel-details-main-content">
@@ -18,7 +20,7 @@ const UserDetails = ({userData}) => {
                         <p style={{color:'rgb(159, 158, 158)'}}>More about this channel ...<span style={{color:'white'}}>more</span></p>
 
                         <div className="channel-details-info-about-buttons">
-                            <div className="customise-channel">
+                            <div className="customise-channel" onClick={()=>{setCustomiseChannel(true)}}>
                                 Customise Channel
                             </div>
                             <div className="manage-videos">
