@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Login from './Login'
 import SignUp from './SignUp'
 
-const Auth = ({setLogin}) => {
+const Auth = ({setLogin,setIsUserLoggedIn}) => {
     const [showLogin, setShowLogin] = useState(true);
     return ( 
         <>
@@ -20,9 +20,9 @@ const Auth = ({setLogin}) => {
                     {
                         showLogin 
                         ?
-                            <Login setLogin={setLogin}/> 
+                            <Login setLogin={setLogin} setIsUserLoggedIn={setIsUserLoggedIn}/> 
                         : 
-                            <SignUp setLogin={setLogin}  />
+                            <SignUp setLogin={setLogin} setIsUserLoggedIn={setIsUserLoggedIn}  />
                     }
                 </div>
             </div>

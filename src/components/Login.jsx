@@ -1,7 +1,7 @@
 import icon from '../assets/temp.jpeg';
 import { useState } from 'react';
 
-const Login = ({setLogin}) => {
+const Login = ({setLogin,setIsUserLoggedIn}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -28,6 +28,7 @@ const Login = ({setLogin}) => {
             if(data.statusCode === 200){
                 // alert('User logged In successfully');
                 setLogin(false);
+                setIsUserLoggedIn(true);
             }
         } catch (error) {
             console.log("Error : ",error);

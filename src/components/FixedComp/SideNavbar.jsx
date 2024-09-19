@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Test from '../Test';
 import Channel from '../ContentComp/Channel';
 import '../../index.css'; // Import the CSS file

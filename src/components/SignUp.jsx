@@ -1,7 +1,7 @@
 // import { set } from 'mongoose';
 import icon from '../assets/temp.jpeg';
 import { useState } from 'react';
-const Signup = ({setLogin}) => {
+const Signup = ({setLogin,setIsUserLoggedIn}) => {
     const [next, setNext] = useState(false);
     const [fullname, setFullname] = useState("");
     const [username, setUsername] = useState("");
@@ -52,6 +52,7 @@ const Signup = ({setLogin}) => {
             if(data.statusCode === 201){
                 // alert('User registered successfully');
                 setLogin(false);
+                setIsUserLoggedIn(true);
             }
         }catch(error){
             console.log("Error while sending the FE req : ",error);

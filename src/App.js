@@ -8,23 +8,25 @@ import Test from './components/FixedComp/Test';
 import Channel from './components/ContentComp/Channel';
 import CustomiseChannel from './components/CustomiseChannel/CustomiseChannel';
 import UserOptions from './components/UserOptions/UserOptions';
+import Login from "./components/Login";
 function App() {
   const [login, setLogin] = useState(false);
   const [customiseChannel,setCustomiseChannel] = useState(false);
   const [userOptions,setUserOptions] = useState(false);
-  
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   return (
     <>
       {!login ? (
               <Router>
         <div>
-          <Navbar userOptions={userOptions} setUserOptions={setUserOptions} />
+          <Navbar userOptions={userOptions} setUserOptions={setUserOptions} isUserLoggedIn={isUserLoggedIn} setLogin={setLogin} />
           {!customiseChannel ? <div className="app-layout">
             <SideNavbar setLogin={setLogin} />
             <div className="app-main-content">
               {userOptions && <UserOptions />}
                 <Routes>
                       <Route path="/" element={<Test />} />
+                      {/* <Route path="/login" element={<Login />} /> */}
                       <Route path="/shorts" element={<Test />} />
                       <Route path="/subscriptions" element={<Test />} />
                       <Route path="/user/channel" element={<Channel setCustomiseChannel={setCustomiseChannel} />} />
@@ -42,8 +44,9 @@ function App() {
         </div>
                 </Router>
       ) : (
-        <MainAuth setLogin={setLogin} />
+        <MainAuth setLogin={setLogin} setIsUserLoggedIn={setIsUserLoggedIn} />
       )}
+      
     </>
   );
 }

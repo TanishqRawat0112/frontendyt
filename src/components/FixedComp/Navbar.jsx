@@ -5,15 +5,16 @@ import notif from '../../assets/notif.png';
 import '../../index.css'; // Import the CSS file
 import { useState,useEffect } from 'react';
 import  fetchUserData  from '../../api/getUserData';
-
-const Navbar = ({userOptions,setUserOptions}) => {
+const Navbar = ({userOptions,setUserOptions,isUserLoggedIn,setLogin}) => {
     const [userImage,setUserImage] = useState('');
     useEffect(()=>{
-        const fetchUserImage = async () =>{
+        if(isUserLoggedIn){
+            const fetchUserImage = async () =>{
             const tempImage = await fetchUserData();
             setUserImage(tempImage[2]);
+            }
+            fetchUserImage();
         }
-        fetchUserImage();
     },[]);
     return (
         <div className="navbar-container">
@@ -45,8 +46,12 @@ const Navbar = ({userOptions,setUserOptions}) => {
                 <div className="navbar-item">
                 <img src={notif} alt="notification" className='navbar-item-opt' />
                 </div>
-                <div className="navbar-item" onClick={()=>setUserOptions(!userOptions)}>
-                    <img src={userImage} alt="user" className='navbar-item-userImage'/>
+                <div className="navbar-item" >
+                    {isUserLoggedIn ?
+                    <img src={userImage} alt="user" className='navbar-item-userImage' onClick={()=>setUserOptions(!userOptions)} />
+                : <div className='navbar-item-userImage-alt' onClick={()=>setLogin(true)} >
+                    Login
+                    </div>}
                 </div>
             </div>
         </div>
