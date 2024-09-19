@@ -828,6 +828,48 @@ body{
         border: 1px solid white;
     }
 
+    .user-options-container{
+        position: fixed;
+        width: 20%;
+        height: 87%;
+        right: 1%;
+        top: 9%;
+        background-color: rgb(40, 40, 40);
+        border-radius: 15px;
+        /* border: 1px solid white; */
+    }
+
+    .user-options-container div{
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+
+    .user-options-first-section{
+        border-bottom: 2px solid rgb(75, 75, 75);
+        width: 100%;
+        height: 14%;
+    }
+
+    .user-options-second-section{
+        width: 100%;
+        height: 21%;
+        border-bottom: 2px solid rgb(75, 75, 75);
+    }
+    .user-options-third-section{
+        width: 100%;
+        height: 11%;
+        border-bottom: 2px solid rgb(75, 75, 75);
+    }
+    .user-options-fourth-section{
+        width: 100%;
+        height: 36%;
+        border-bottom: 2px solid rgb(75, 75, 75);
+    }
+    .user-options-fifth-section{
+        width: 100%;
+        height: 6%;
+        border-bottom: 2px solid rgb(75, 75, 75);
+    }
 
   
 

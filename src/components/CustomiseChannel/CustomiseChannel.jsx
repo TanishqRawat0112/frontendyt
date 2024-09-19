@@ -3,7 +3,7 @@ import fetchUserData from "../../api/getUserData";
 import SideBar from "./Sidebar";
 import MainComp from "./MainComp";
 
-const CustomiseChannel = () => {
+const CustomiseChannel = ({setCustomiseChannel}) => {
     const [userInfo, setUserInfo] = useState([]);
     useEffect(()=>{
         const setData = async () => {
@@ -19,7 +19,7 @@ const CustomiseChannel = () => {
             {/* SideBar */}
             <SideBar userInfo={userInfo} />
             {/* Main Content  */}
-            <MainComp userInfo={userInfo} />
+            <MainComp userInfo={userInfo} setCustomiseChannel={setCustomiseChannel} />
         </div>
      );
 }

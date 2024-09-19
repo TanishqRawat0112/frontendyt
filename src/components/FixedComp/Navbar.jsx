@@ -6,7 +6,7 @@ import '../../index.css'; // Import the CSS file
 import { useState,useEffect } from 'react';
 import  fetchUserData  from '../../api/getUserData';
 
-const Navbar = () => {
+const Navbar = ({userOptions,setUserOptions}) => {
     const [userImage,setUserImage] = useState('');
     useEffect(()=>{
         const fetchUserImage = async () =>{
@@ -45,7 +45,7 @@ const Navbar = () => {
                 <div className="navbar-item">
                 <img src={notif} alt="notification" className='navbar-item-opt' />
                 </div>
-                <div className="navbar-item">
+                <div className="navbar-item" onClick={()=>setUserOptions(!userOptions)}>
                     <img src={userImage} alt="user" className='navbar-item-userImage'/>
                 </div>
             </div>

@@ -7,19 +7,22 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Test from './components/FixedComp/Test';
 import Channel from './components/ContentComp/Channel';
 import CustomiseChannel from './components/CustomiseChannel/CustomiseChannel';
+import UserOptions from './components/UserOptions/UserOptions';
 function App() {
   const [login, setLogin] = useState(false);
   const [customiseChannel,setCustomiseChannel] = useState(false);
+  const [userOptions,setUserOptions] = useState(false);
   
   return (
     <>
       {!login ? (
               <Router>
         <div>
-          <Navbar />
+          <Navbar userOptions={userOptions} setUserOptions={setUserOptions} />
           {!customiseChannel ? <div className="app-layout">
             <SideNavbar setLogin={setLogin} />
             <div className="app-main-content">
+              {userOptions && <UserOptions />}
                 <Routes>
                       <Route path="/" element={<Test />} />
                       <Route path="/shorts" element={<Test />} />
@@ -33,7 +36,9 @@ function App() {
                   </Routes>
             </div>
           </div>
-          : <CustomiseChannel setCustomiseChannel={setCustomiseChannel} />}
+          : <CustomiseChannel setCustomiseChannel={setCustomiseChannel} />
+            
+          }
         </div>
                 </Router>
       ) : (

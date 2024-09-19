@@ -1,37 +1,97 @@
 import { useState } from "react";
+import hitRequest from "../../api/hitRequest";
 
 const MainComp = ({userInfo}) => {
     const [fullname, setFullname] = useState(userInfo[1]);
     const [username, setUsername] = useState(userInfo[0]);
+    const [avatar, setAvatar] = useState(null);
+    const [coverImage, setCoverImage] = useState(null);
+
+    const handleAvatarUpload = (e) => {
+        setAvatar(e.target.files[0]);
+        console.log("Avatar : ",e.target.files[0]);
+    }
+
+    const handleCoverImageUpload = (e) => {
+        setCoverImage(e.target.files[0]);
+        console.log("Cover Image : ",e.target.files[0]);
+    }
 
     const handleFormSubmit = async(e)=>{
         e.preventDefault();
         console.log("Fullname : ",fullname);
         console.log("Username : ",username);
-        if(!fullname || !username){
+        if(!fullname && !username && !avatar && !coverImage){
+            console.log("No changes made to user details");
             return;
         }
-        const formData = new FormData();
-        formData.append('fullname',fullname);
-        formData.append('username',username);
-        try {
-            const response = await fetch('http://localhost:8000/api/v1/users/update-details',{
-                method: 'PATCH', 
-                credentials: 'include',  
-                body: formData
-            });
-            console.log("Response : ",response); 
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+        if(username !== userInfo[0] && fullname !== userInfo[1]){
+            const formData = new FormData();
+            formData.append('fullname',fullname);
+            formData.append('username',username);
+
+            const response = await hitRequest('users/update-details','POST',formData);
+
+            if(response.status === 200){
+                console.log("User details updated successfully");
             }
-            const data = await response.json();
-            if(data.statusCode === 200){
-                // alert('User logged In successfully');
-                console.log("User updated successfully");
-                // setLogin(false);
+            else{
+                console.log("Error while updating user details");
             }
-        } catch (error) {
-            console.log("Error : ",error);
+        }
+        else if(username!== userInfo[0]){
+            const formData = new FormData();
+            formData.append('username',username);
+
+            const response = await hitRequest('users/update-details','POST',formData);
+
+            if(response.status === 200){
+                console.log("User details updated successfully");
+            }
+            else{
+                console.log("Error while updating user details");
+            }
+        }
+        else if(fullname !== userInfo[1]){
+            const formData = new FormData();
+            formData.append('fullname',fullname);
+
+            const response = await hitRequest('users/update-details','POST',formData);
+
+            if(response.status === 200){
+                console.log("User details updated successfully");
+            }
+            else{
+                console.log("Error while updating user details");
+            }
+        }
+        else{
+            console.log("No changes made to user details");
+        }
+
+        if(avatar){
+            const avatarData = new FormData();
+            avatarData.append('avatar',avatar);
+
+            const avatarResponse = await hitRequest('users/update-details/update-avatar','PATCH',avatarData);
+            if(avatarResponse.status === 200){
+                console.log("Avatar updated successfully");
+            }
+            else{
+                console.log("Error while updating avatar");
+            }
+        }
+
+        if(coverImage){
+            const coverImageData = new FormData();
+            coverImageData.append('coverImage',coverImage);
+            const coverImageResponse = await hitRequest('users/update-details/update-cover-image','PATCH',coverImageData);
+            if(coverImageResponse.status === 200){
+                console.log("Cover image updated successfully");
+            }
+            else{
+                console.log("Error while updating cover image");
+            }
         }
     }
     return ( 
@@ -78,7 +138,7 @@ const MainComp = ({userInfo}) => {
                                 For the best results on all devices, use an image that's at least 2048 x 1152 pixels and 6MB or less. 
                                 </div>
                                 <div className="banner-image-content-side-input">
-                                    <input type="file" placeholder="Upload" />
+                                    <input type="file" placeholder="Upload" onChange={handleCoverImageUpload} />
                                 </div>
                             </div>
                         </div>
@@ -99,7 +159,7 @@ const MainComp = ({userInfo}) => {
                                     It's recommended to use a picture that's at least 98 x 98 pixels and 4MB or less. Use a PNG or GIF (no animations) file. Make sure your picture follows the YouTube Community Guidelines. 
                                     </div>
                                     <div className="banner-image-content-side-input">
-                                    <input type="file" placeholder="Upload" />
+                                    <input type="file" placeholder="Upload" onChange={handleAvatarUpload} />
                                 </div>
                                 </div>
                             </div>
