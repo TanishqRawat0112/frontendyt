@@ -7,6 +7,7 @@ const hitRequest = async (url, method, data) => {
             body: data
         });
         const responseData = await response.json();
+        console.log("Response data : ", responseData);
         if(responseData.statusCode >= 200 && responseData.statusCode < 300){
             console.log("Request successful");
             return responseData;
@@ -16,7 +17,7 @@ const hitRequest = async (url, method, data) => {
             return null;
         }
     } catch (error) {
-        console.log("Error : ", error);
+        console.log("Error during hitRequest api : ", error);
     }
 }
 

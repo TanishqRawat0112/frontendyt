@@ -1,28 +1,40 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import hitRequest from "../../api/hitRequest";
 
-const MainComp = ({userInfo}) => {
-    const [fullname, setFullname] = useState(userInfo[1]);
-    const [username, setUsername] = useState(userInfo[0]);
+const MainComp = ({userInfo,setCustomiseChannel}) => {
+    const [fullname, setFullname] = useState("");
+    const [username, setUsername] = useState("");
     const [avatar, setAvatar] = useState(null);
     const [coverImage, setCoverImage] = useState(null);
 
+    useEffect(() => {
+        if (userInfo && userInfo.length > 0) {
+            setUsername(userInfo[0]);
+            setFullname(userInfo[1]);
+            setAvatar(userInfo[2]);
+            setCoverImage(userInfo[3]);
+        }
+    }, [userInfo]); 
+    
+
     const handleAvatarUpload = (e) => {
         setAvatar(e.target.files[0]);
-        console.log("Avatar : ",e.target.files[0]);
+        // console.log("Avatar : ",e.target.files[0]);
     }
 
     const handleCoverImageUpload = (e) => {
         setCoverImage(e.target.files[0]);
-        console.log("Cover Image : ",e.target.files[0]);
+        // console.log("Cover Image : ",e.target.files[0]);
     }
 
     const handleFormSubmit = async(e)=>{
         e.preventDefault();
-        console.log("Fullname : ",fullname);
-        console.log("Username : ",username);
+        // console.log("Fullname : ",fullname);
+        // console.log("Username : ",username);
+        // console.log("Avatar : ",avatar);
+        // console.log("Cover Image : ",coverImage);
         if(!fullname && !username && !avatar && !coverImage){
-            console.log("No changes made to user details");
+            console.log("No changes made to user details or images");
             return;
         }
         if(username !== userInfo[0] && fullname !== userInfo[1]){
@@ -30,9 +42,9 @@ const MainComp = ({userInfo}) => {
             formData.append('fullname',fullname);
             formData.append('username',username);
 
-            const response = await hitRequest('users/update-details','POST',formData);
+            const response = await hitRequest('/users/update-details','PATCH',formData);
 
-            if(response.status === 200){
+            if(response){
                 console.log("User details updated successfully");
             }
             else{
@@ -43,9 +55,9 @@ const MainComp = ({userInfo}) => {
             const formData = new FormData();
             formData.append('username',username);
 
-            const response = await hitRequest('users/update-details','POST',formData);
+            const response = await hitRequest('/users/update-details','POST',formData);
 
-            if(response.status === 200){
+            if(response){
                 console.log("User details updated successfully");
             }
             else{
@@ -56,9 +68,9 @@ const MainComp = ({userInfo}) => {
             const formData = new FormData();
             formData.append('fullname',fullname);
 
-            const response = await hitRequest('users/update-details','POST',formData);
+            const response = await hitRequest('/users/update-details','POST',formData);
 
-            if(response.status === 200){
+            if(response){
                 console.log("User details updated successfully");
             }
             else{
@@ -69,12 +81,13 @@ const MainComp = ({userInfo}) => {
             console.log("No changes made to user details");
         }
 
-        if(avatar){
+        if(avatar!==userInfo[2]){
             const avatarData = new FormData();
             avatarData.append('avatar',avatar);
 
-            const avatarResponse = await hitRequest('users/update-details/update-avatar','PATCH',avatarData);
-            if(avatarResponse.status === 200){
+            const avatarResponse = await hitRequest('/users/update-details/update-avatar','PATCH',avatarData);
+            // console.log("Avatar response status : ",avatarResponse?.statusCode);
+            if(avatarResponse){
                 console.log("Avatar updated successfully");
             }
             else{
@@ -85,8 +98,8 @@ const MainComp = ({userInfo}) => {
         if(coverImage){
             const coverImageData = new FormData();
             coverImageData.append('coverImage',coverImage);
-            const coverImageResponse = await hitRequest('users/update-details/update-cover-image','PATCH',coverImageData);
-            if(coverImageResponse.status === 200){
+            const coverImageResponse = await hitRequest('/users/update-details/update-cover-image','PATCH',coverImageData);
+            if(coverImageResponse){
                 console.log("Cover image updated successfully");
             }
             else{
@@ -109,10 +122,11 @@ const MainComp = ({userInfo}) => {
                     </div>
                 </div>
                 <div className="customise-channel-main-navbar-buttons">
-                    <div className="customise-channel-main-navbar-buttons-viewChannel">
+                    <div className="customise-channel-main-navbar-buttons-viewChannel"
+                    onClick={()=>setCustomiseChannel(false)}>
                         View Channel
                     </div>
-                    <div className="customise-channel-main-navbar-buttons-cancel">
+                    <div className="customise-channel-main-navbar-buttons-cancel" onClick={()=>setCustomiseChannel(false)}>
                         Cancel
                     </div>
                     <div className="customise-channel-main-navbar-buttons-publish" onClick={handleFormSubmit}>
