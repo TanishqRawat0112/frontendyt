@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 const MainComp = ({userInfo}) => {
-    const [fullname, setFullname] = useState('tr');
-    const [username, setUsername] = useState("tr1");
+    const [fullname, setFullname] = useState(userInfo[1]);
+    const [username, setUsername] = useState(userInfo[0]);
 
     const handleFormSubmit = async(e)=>{
         e.preventDefault();
