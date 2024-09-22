@@ -1,5 +1,6 @@
 import icon from '../assets/temp.jpeg';
 import { useState } from 'react';
+import {Link} from 'react-router-dom';
 
 const Login = ({setLogin,setIsUserLoggedIn}) => {
     const [email, setEmail] = useState("");
@@ -63,7 +64,9 @@ const Login = ({setLogin,setIsUserLoggedIn}) => {
                             Clear
                         </div>
                         <div className='login-submit-submit' onClick={handleFormSubmit}>
-                            Login
+                            <Link to='/'>
+                                Login
+                            </Link>
                         </div>
                     </div>
                 </form>

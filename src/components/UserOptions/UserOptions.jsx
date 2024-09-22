@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 const UserOptions = () => {
     const [userData, setUserData] = useState([]);
 
@@ -74,10 +75,12 @@ const UserOptions = () => {
             </div>
             <div className="user-options-second-section">
                 <div className="user-options-second-section-account">
-                    Account
+                    Account Details
                 </div>
                 <div className="user-options-second-section-switch-account" >
-                    Switch Account
+                    <Link to="/change-password">
+                        Change Password
+                    </Link>
                 </div>
                 <div className="user-options-second-section-sign-out" onClick={handleSignout}>
                     Sign Out

@@ -9,6 +9,8 @@ import Channel from './components/ContentComp/Channel';
 import CustomiseChannel from './components/CustomiseChannel/CustomiseChannel';
 import UserOptions from './components/UserOptions/UserOptions';
 import Login from "./components/Login";
+import ChangePassword from "./components/UserOptions/ChangePassword";
+import Home from "./components/Home Component/Home";
 function App() {
   const [login, setLogin] = useState(false);
   const [customiseChannel,setCustomiseChannel] = useState(false);
@@ -16,16 +18,17 @@ function App() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   return (
     <>
+    <Router>
       {!login ? (
-              <Router>
+              
         <div>
-          <Navbar userOptions={userOptions} setUserOptions={setUserOptions} isUserLoggedIn={isUserLoggedIn} setLogin={setLogin} />
+          <Navbar userOptions={userOptions} setUserOptions={setUserOptions} isUserLoggedIn={isUserLoggedIn} setIsUserLoggedIn={setIsUserLoggedIn} setLogin={setLogin} />
           {!customiseChannel ? <div className="app-layout">
             <SideNavbar setLogin={setLogin} />
             <div className="app-main-content">
               {userOptions && <UserOptions />}
                 <Routes>
-                      <Route path="/" element={<Test />} />
+                      <Route path="/" element={<Home />} />
                       {/* <Route path="/login" element={<Login />} /> */}
                       <Route path="/shorts" element={<Test />} />
                       <Route path="/subscriptions" element={<Test />} />
@@ -35,6 +38,7 @@ function App() {
                       <Route path="/your-videos" element={<Test />} />
                       <Route path="/watch-later" element={<Test />} />
                       <Route path="/liked-videos" element={<Test />} />
+                      <Route path="/change-password" element={<ChangePassword/>}/>
                   </Routes>
             </div>
           </div>
@@ -42,10 +46,14 @@ function App() {
             
           }
         </div>
-                </Router>
+                
       ) : (
-        <MainAuth setLogin={setLogin} setIsUserLoggedIn={setIsUserLoggedIn} />
+        <Routes>
+          <Route path="/login" element={<MainAuth setLogin={setLogin} setIsUserLoggedIn={setIsUserLoggedIn} />} />
+        </Routes>
+        
       )}
+      </Router>
       
     </>
   );

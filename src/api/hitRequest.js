@@ -1,4 +1,7 @@
 const hitRequest = async (url, method, data) => {
+    if(!data){
+        data = null;
+    }
     const urlPrefix = 'http://localhost:8000/api/v1';
     try {
         const response = await fetch(`${urlPrefix}${url}`, {

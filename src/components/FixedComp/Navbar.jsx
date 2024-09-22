@@ -5,17 +5,25 @@ import notif from '../../assets/notif.png';
 import '../../index.css'; // Import the CSS file
 import { useState,useEffect } from 'react';
 import  fetchUserData  from '../../api/getUserData';
-const Navbar = ({userOptions,setUserOptions,isUserLoggedIn,setLogin}) => {
+import { Link } from 'react-router-dom';
+const Navbar = ({userOptions,setUserOptions,isUserLoggedIn,setIsUserLoggedIn,setLogin}) => {
     const [userImage,setUserImage] = useState('');
     useEffect(()=>{
-        if(isUserLoggedIn){
-            const fetchUserImage = async () =>{
-            const tempImage = await fetchUserData();
-            setUserImage(tempImage[2]);
+        const checkUserLoggedIn = async () => {
+            const tempData = await fetchUserData();
+            if(tempData){
+                setIsUserLoggedIn(true);
             }
-            fetchUserImage();
+            if(isUserLoggedIn){
+                const fetchUserImage = async () =>{
+                const tempImage = await fetchUserData();
+                setUserImage(tempImage[2]);
+                }
+                fetchUserImage();
+            }
         }
-    },[]);
+        checkUserLoggedIn();
+    },[isUserLoggedIn]);
     return (
         <div className="navbar-container">
             {/* Start Section */}
@@ -50,7 +58,9 @@ const Navbar = ({userOptions,setUserOptions,isUserLoggedIn,setLogin}) => {
                     {isUserLoggedIn ?
                     <img src={userImage} alt="user" className='navbar-item-userImage' onClick={()=>setUserOptions(!userOptions)} />
                 : <div className='navbar-item-userImage-alt' onClick={()=>setLogin(true)} >
-                    Login
+                    <Link to="/login">
+                        Login
+                    </Link>
                     </div>}
                 </div>
             </div>
