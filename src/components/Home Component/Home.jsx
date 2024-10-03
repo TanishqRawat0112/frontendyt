@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import hitRequest from "../../api/hitRequest";
+import { formatDistanceToNow } from 'date-fns';
 
 const Home = () => {
     const [videos, setVideos] = useState([]);
@@ -55,7 +56,7 @@ const Home = () => {
                                 {users[index] && users[index].fullname}
                             </div>
                             <div className="home-video-card-lower-details-views">
-                                {video.views} views . {new Date(video.createdAt).toLocaleDateString()}
+                                {video.views} views . {formatDistanceToNow(new Date(video.createdAt), { addSuffix: true })}
                             </div>
                         </div>
                     </div>
