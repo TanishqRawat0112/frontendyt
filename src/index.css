@@ -1024,6 +1024,17 @@ body{
       border-radius: 15px;
     }
 
+    .home-video-card-duration{
+      position: absolute;
+      bottom: 16vh;
+      right: 1vh;
+      background-color: rgba(0, 0, 0,0.7);
+      color: white;
+      padding: 4px 6px;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+
     .home-video-card-lower{
       display: flex;
       width: 100%;
@@ -1032,7 +1043,7 @@ body{
 
     .home-video-card-lower-logo{
       height: 40%;
-      width: 10%;
+      width: 12%;
       margin-top: 2vh;
     }
 

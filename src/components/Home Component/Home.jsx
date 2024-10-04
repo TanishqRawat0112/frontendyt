@@ -40,7 +40,11 @@ const Home = () => {
             {videos.map((video, index) => (
                 <div key={video._id} className="home-video-card">
                     <div className="home-video-card-upper">
+                        {console.log("Video : ",video.title, "Duration : ",video.duration)}
                         <img src={video.thumbnail} alt={video.title} className="home-video-card-thumbnail" />
+                        <div className="home-video-card-duration">
+                            {video.duration.toFixed(2)}
+                        </div>
                     </div>
                     <div className="home-video-card-lower">
                         <div className="home-video-card-lower-logo">
