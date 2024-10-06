@@ -6,8 +6,10 @@ import '../../index.css'; // Import the CSS file
 import { useState,useEffect } from 'react';
 import  fetchUserData  from '../../api/getUserData';
 import { Link } from 'react-router-dom';
-const Navbar = ({userOptions,setUserOptions,isUserLoggedIn,setIsUserLoggedIn,setLogin}) => {
+import PopupNavbar from './PopupNavbar';
+const Navbar = ({userOptions,setUserOptions,isUserLoggedIn,setIsUserLoggedIn,setLogin,setStudioState}) => {
     const [userImage,setUserImage] = useState('');
+    const [popup,setPopup] = useState(false);
     useEffect(()=>{
         const checkUserLoggedIn = async () => {
             const tempData = await fetchUserData();
@@ -48,9 +50,10 @@ const Navbar = ({userOptions,setUserOptions,isUserLoggedIn,setIsUserLoggedIn,set
 
             {/* End Section */}
             <div className="navbar-end">
-                <div className="navbar-item">
+                <div className="navbar-item" onClick={()=>setPopup(!popup)}>
                     <img src={create} alt="create" className='navbar-item-opt' />
                 </div>
+                {popup && <PopupNavbar setStudioState={setStudioState} />}
                 <div className="navbar-item">
                 <img src={notif} alt="notification" className='navbar-item-opt' />
                 </div>

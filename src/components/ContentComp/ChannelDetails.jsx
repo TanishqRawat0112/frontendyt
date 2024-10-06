@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from 'react-router-dom';
 
 const UserDetails = ({userData,setCustomiseChannel}) => {
     const [isPlaylistSelected, setIsPlaylistSelected] = useState(true);
@@ -20,8 +21,10 @@ const UserDetails = ({userData,setCustomiseChannel}) => {
                         <p style={{color:'rgb(159, 158, 158)'}}>More about this channel ...<span style={{color:'white'}}>more</span></p>
 
                         <div className="channel-details-info-about-buttons">
-                            <div className="customise-channel" onClick={()=>{setCustomiseChannel(true)}}>
-                                Customise Channel
+                            <div className="customise-channel">
+                                <Link to="/studio/customisation" style={{ textDecoration: 'none', color:'inherit' }}>
+                                    Customise Channel
+                                </Link>
                             </div>
                             <div className="manage-videos">
                                 Manage Videos

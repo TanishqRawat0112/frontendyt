@@ -2,8 +2,9 @@ import { useState,useEffect } from "react";
 import fetchUserData from "../../api/getUserData";
 import SideBar from "./Sidebar";
 import MainComp from "./MainComp";
+import Content from "./Content";
 
-const CustomiseChannel = ({setCustomiseChannel}) => {
+const CustomiseChannel = ({setCustomiseChannel,studioState,setStudioState}) => {
     const [userInfo, setUserInfo] = useState([]);
     useEffect(()=>{
         const setData = async () => {
@@ -19,6 +20,7 @@ const CustomiseChannel = ({setCustomiseChannel}) => {
             {/* SideBar */}
             <SideBar userInfo={userInfo} />
             {/* Main Content  */}
+            
             <MainComp userInfo={userInfo} setCustomiseChannel={setCustomiseChannel} />
         </div>
      );

@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import hitRequest from "../../api/hitRequest";
+import { Link } from "react-router-dom";
 
 const MainComp = ({userInfo,setCustomiseChannel}) => {
     const [fullname, setFullname] = useState("");
@@ -122,12 +123,15 @@ const MainComp = ({userInfo,setCustomiseChannel}) => {
                     </div>
                 </div>
                 <div className="customise-channel-main-navbar-buttons">
-                    <div className="customise-channel-main-navbar-buttons-viewChannel"
-                    onClick={()=>setCustomiseChannel(false)}>
+                    <div className="customise-channel-main-navbar-buttons-viewChannel">
+                        <Link to="/user/channel" style={{ textDecoration: 'none', color:'inherit' }}>
                         View Channel
+                        </Link>
                     </div>
-                    <div className="customise-channel-main-navbar-buttons-cancel" onClick={()=>setCustomiseChannel(false)}>
+                    <div className="customise-channel-main-navbar-buttons-cancel" >
+                        <Link to="/" style={{ textDecoration: 'none', color:'inherit' }}>
                         Cancel
+                        </Link>
                     </div>
                     <div className="customise-channel-main-navbar-buttons-publish" onClick={handleFormSubmit}>
                         Publish

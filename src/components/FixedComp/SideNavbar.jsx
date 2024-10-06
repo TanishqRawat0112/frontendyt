@@ -3,7 +3,7 @@ import Test from '../Test';
 import Channel from '../ContentComp/Channel';
 import '../../index.css'; // Import the CSS file
 
-const SideNavbar = ({setLogin}) => {
+const SideNavbar = ({setLogin,setStudioState}) => {
     // console.log("User Info in Side Navbar ",userInfo);
     return (
         // <Router>
@@ -11,7 +11,7 @@ const SideNavbar = ({setLogin}) => {
                 {/* Section 1: Main Navigation */}
                 <div className="section-navigation">
                     <div className="menu-item">
-                        <Link to="/">
+                        <Link to="/" style={{ textDecoration: 'none' }}>
                             <div className="menu-item-content">
                                 <span>🏠</span> {/* Icon placeholder */}
                                 <span>Home</span>
@@ -19,7 +19,7 @@ const SideNavbar = ({setLogin}) => {
                         </Link>
                     </div>
                     <div className="menu-item">
-                        <Link to="/shorts">
+                        <Link to="/shorts" style={{ textDecoration: 'none' }}>
                             <div className="menu-item-content">
                                 <span>⚡</span> {/* Icon placeholder */}
                                 <span>Shorts</span>
@@ -27,7 +27,7 @@ const SideNavbar = ({setLogin}) => {
                         </Link>
                     </div>
                     <div className="menu-item" onClick={()=>setLogin(true)}>
-                        <Link to="/subscriptions">
+                        <Link to="/subscriptions" style={{ textDecoration: 'none' }}>
                             <div className="menu-item-content">
                                 <span>📺</span> {/* Icon placeholder */}
                                 <span>Subscriptions</span>
@@ -41,8 +41,8 @@ const SideNavbar = ({setLogin}) => {
 
                 {/* Section 2: Library */}
                 <div className="section-library">
-                    <div className="menu-item">
-                        <Link to="/user/channel">
+                    <div className="menu-item" onClick={()=>setStudioState("customisation")}>
+                        <Link to="/user/channel" style={{ textDecoration: 'none' }}>
                             <div className="menu-item-content">
                                 <span>👤</span>
                                 <span>Your Channel</span>
@@ -50,7 +50,7 @@ const SideNavbar = ({setLogin}) => {
                         </Link>
                     </div>
                     <div className="menu-item" onClick={()=>setLogin(true)}>
-                        <Link to="/history">
+                        <Link to="/history" style={{ textDecoration: 'none' }}>
                             <div className="menu-item-content">
                                 <span>🕒</span>
                                 <span>History</span>
@@ -58,7 +58,7 @@ const SideNavbar = ({setLogin}) => {
                         </Link>
                     </div>
                     <div className="menu-item hidden" onClick={()=>setLogin(true)}>
-                        <Link to="/playlist">
+                        <Link to="/playlist" style={{ textDecoration: 'none' }}>
                             <div className="menu-item-content">
                                 <span>🎶</span>
                                 <span>Playlists</span>
@@ -66,7 +66,7 @@ const SideNavbar = ({setLogin}) => {
                         </Link>
                     </div>
                     <div className="menu-item">
-                        <Link to="/" onClick={()=>setLogin(true)}>
+                        <Link to="/" onClick={()=>setLogin(true)} style={{ textDecoration: 'none' }}>
                             <div className="menu-item-content">
                                 <span>🎥</span>
                                 <span>Your Videos</span>
@@ -74,7 +74,7 @@ const SideNavbar = ({setLogin}) => {
                         </Link>
                     </div>
                     <div className="menu-item">
-                        <Link to="/watch-later" onClick={()=>setLogin(true)}>
+                        <Link to="/watch-later" onClick={()=>setLogin(true)} style={{ textDecoration: 'none' }}>
                             <div className="menu-item-content">
                                 <span>⏳</span>
                                 <span>Watch Later</span>
@@ -82,7 +82,7 @@ const SideNavbar = ({setLogin}) => {
                         </Link>
                     </div>
                     <div className="menu-item">
-                        <Link to="/liked-videos" onClick={()=>setLogin(true)}>
+                        <Link to="/liked-videos" onClick={()=>setLogin(true)} style={{ textDecoration: 'none' }}>
                             <div className="menu-item-content">
                                 <span>👍</span>
                                 <span>Liked Videos</span>
