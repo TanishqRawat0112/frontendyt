@@ -75,10 +75,12 @@ const UserOptions = () => {
             </div>
             <div className="user-options-second-section">
                 <div className="user-options-second-section-account">
+                    <Link to="/user/channel" style={{ textDecoration: 'none', color:'inherit' }}>
                     Account Details
+                    </Link>
                 </div>
                 <div className="user-options-second-section-switch-account" >
-                    <Link to="/change-password">
+                    <Link to="/change-password" style={{ textDecoration: 'none', color:'inherit' }}>
                         Change Password
                     </Link>
                 </div>

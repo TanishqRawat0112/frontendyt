@@ -5,6 +5,7 @@ import Close from "../../assets/close.png";
 import Feedback from "../../assets/feedback.png";
 import Upload from "../../assets/upload.png";
 import VideoDetails from "./VideoDetails";
+import { Link } from "react-router-dom";
 
 const CustomiseChannel = ({setCustomiseChannel,studioState,setStudioState}) => {
     const [userInfo, setUserInfo] = useState([]);
@@ -51,9 +52,11 @@ const CustomiseChannel = ({setCustomiseChannel,studioState,setStudioState}) => {
                             <div className="video-form-button">
                                 <img src={Feedback} alt="feedback" />
                             </div>
+                            <Link to="/user/channel" style={{ textDecoration: 'none', color:'inherit' }}>
                             <div className="video-form-button">
                                 <img src={Close} alt="close" />
                             </div>
+                            </Link>
                     </div>
                 </div>
                 <form>

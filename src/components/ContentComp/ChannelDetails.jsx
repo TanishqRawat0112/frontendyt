@@ -27,7 +27,9 @@ const UserDetails = ({userData,setCustomiseChannel}) => {
                                 </Link>
                             </div>
                             <div className="manage-videos">
+                                <Link to='/studio/content' style={{ textDecoration: 'none', color:'inherit' }}>
                                 Manage Videos
+                                </Link>
                             </div>
                         </div>
                     </div>

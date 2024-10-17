@@ -53,7 +53,7 @@ const Navbar = ({userOptions,setUserOptions,isUserLoggedIn,setIsUserLoggedIn,set
                 <div className="navbar-item" onClick={()=>setPopup(!popup)}>
                     <img src={create} alt="create" className='navbar-item-opt' />
                 </div>
-                {popup && <PopupNavbar setStudioState={setStudioState} />}
+                {popup && <PopupNavbar popup={popup} setPopup={setPopup} />}
                 <div className="navbar-item">
                 <img src={notif} alt="notification" className='navbar-item-opt' />
                 </div>
