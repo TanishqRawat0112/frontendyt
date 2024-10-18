@@ -1,0 +1,123 @@
+/* UserChannel.css */
+
+.channel-page {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .cover-image {
+    width: 100%;
+  }
+  
+  .cover-img {
+    width: 100%;
+    height: 25vh;
+    border-radius: 1rem;
+    margin-left: 1rem;
+  }
+  
+  .channel-header {
+    width: 80vw;
+    height: 25vh;
+    background-color: #0f0f0f;
+    display: flex;
+    padding-left: 5vw;
+    align-items: center;
+  }
+  
+  .avatar-img {
+    border-radius: 50%;
+    height: 20vh;
+    width: 12vw;
+  }
+  
+  .channel-info {
+    width: 70vh;
+    margin-left: 5vh;
+  }
+  
+  .channel-name {
+    font-weight: bold;
+    font-size: 3rem;
+    color: white;
+    /* border: 2px solid white; */
+    height: 5vh;
+    margin-bottom: 2vh;
+  }
+  
+  .channel-stats {
+    display: flex;
+    gap: 1rem;
+    color: #888;
+  }
+  
+  .username, .subscribers, .video-count {
+    color: #888;
+  }
+  
+  .more-link {
+    color: #888;
+    text-decoration: none;
+  }
+  
+  .subscribe-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 1vh;
+    background-color: #cf2525de;
+    border-radius: 50px;
+    width: 8vw;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .subscribe-button:hover {
+    background-color: #cc0000;
+  }
+  
+  .subscribed-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 1vh;
+    background-color: #484848;
+    border-radius: 50px;
+    width: 8vw;
+    cursor: pointer;
+    color: #00ff00;
+  }
+  
+  .subscribed-button:hover {
+    background-color: #383838;
+  }
+  
+  .channel-nav {
+    display: flex;
+    gap: 3.5rem;
+    margin-left: 5vw;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .nav-link:hover {
+    border-bottom: 2px solid;
+  }
+  
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: #383838;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  

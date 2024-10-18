@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import ChangePassword from "./components/UserOptions/ChangePassword";
 import Home from "./components/Home Component/Home";
 import Content from "./components/CustomiseChannel/Content";
+import SearchUser from "./components/ContentComp/SearchUser";
 function App() {
   const [login, setLogin] = useState(false);
   const [customiseChannel,setCustomiseChannel] = useState(false);
@@ -44,6 +45,8 @@ function App() {
                       <Route path="/studio/content" element={<Content/>}/>
 
                       <Route path="/studio/customisation" element={<CustomiseChannel setCustomiseChannel={setCustomiseChannel} />} />
+
+                      <Route path="/:user_id" element={<SearchUser/>} /> 
                   </Routes>
             </div>
           </div>

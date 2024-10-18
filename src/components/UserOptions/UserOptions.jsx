@@ -69,9 +69,11 @@ const UserOptions = () => {
                     </div>
 
                 </div>
+                <Link to="/user/channel" style={{ textDecoration: 'none', color:'inherit' }}>
                 <div className="user-options-first-section-view">
                     View your channel
                 </div>
+                </Link>
             </div>
             <div className="user-options-second-section">
                 <div className="user-options-second-section-account">

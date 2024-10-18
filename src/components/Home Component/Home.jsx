@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import hitRequest from "../../api/hitRequest";
 import { formatDistanceToNow } from 'date-fns';
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const [videos, setVideos] = useState([]);
     const [users, setUsers] = useState([]);
+    const navigate = useNavigate();
     // const [loadedUsers, setLoadedUsers] = useState(false);
 
     // Fetch videos on component mount
@@ -47,7 +49,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="home-video-card-lower">
-                        <div className="home-video-card-lower-logo">
+                        <div className="home-video-card-lower-logo" onClick={()=>navigate(`/${users[index].username}`)}>
                             {users[index] && (
                                 <img src={users[index].avatar} alt="Logo" className="home-video-card-lower-logo-img" />
                             )}

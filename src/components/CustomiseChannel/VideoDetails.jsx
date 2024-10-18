@@ -317,7 +317,7 @@ const VideoDetails = ({video,videoUrl}) => {
                             <div className="visibility-publish-status-main-body">
                                 <div className="publish-options-main" onClick={()=>{setPublishStatus(false)}}>
                                 <input type="radio" id="contactChoice1" name="contact" value="email" />
-                                <label for="contactChoice1">
+                                <label htmlFor="contactChoice1">
                                     <div className="publish-options">
                                         <div className="publish-options-heading">
                                             Private
@@ -331,7 +331,7 @@ const VideoDetails = ({video,videoUrl}) => {
 
                                 <div className="publish-options-main" onClick={()=>{setPublishStatus(false)}}>
                                 <input type="radio" id="contactChoice2" name="contact" value="phone" />
-                                <label for="contactChoice2">
+                                <label htmlFor="contactChoice2">
                                 <div className="publish-options">
                                         <div className="publish-options-heading">
                                             Unlisted
@@ -345,7 +345,7 @@ const VideoDetails = ({video,videoUrl}) => {
 
                                 <div className="publish-options-main" onClick={()=>{setPublishStatus(true)}}>
                                 <input type="radio" id="contactChoice3" name="contact" value="mail" />
-                                <label for="contactChoice3">
+                                <label htmlFor="contactChoice3">
                                 <div className="publish-options">
                                         <div className="publish-options-heading">
                                             Public
