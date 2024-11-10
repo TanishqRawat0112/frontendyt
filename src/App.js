@@ -13,6 +13,7 @@ import ChangePassword from "./components/UserOptions/ChangePassword";
 import Home from "./components/Home Component/Home";
 import Content from "./components/CustomiseChannel/Content";
 import SearchUser from "./components/ContentComp/SearchUser";
+import VideoPlayer from "./components/VideoPlayerComp/VideoPlayer";
 function App() {
   const [login, setLogin] = useState(false);
   const [customiseChannel,setCustomiseChannel] = useState(false);
@@ -43,6 +44,7 @@ function App() {
                       <Route path="/liked-videos" element={<Test />} />
                       <Route path="/change-password" element={<ChangePassword/>}/>
                       <Route path="/studio/content" element={<Content/>}/>
+                      <Route path='/watch/:videoId' element={<VideoPlayer/>}/>
 
                       <Route path="/studio/customisation" element={<CustomiseChannel setCustomiseChannel={setCustomiseChannel} />} />
 

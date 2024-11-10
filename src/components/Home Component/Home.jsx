@@ -57,6 +57,10 @@ const Home = () => {
         }
     };
 
+    const handleVideoPage = (videoId) => {
+        navigate(`/watch/${videoId}`);
+    }
+
     return (
         <div className="home-container">
             {videos.map((video, index) => {
@@ -67,7 +71,7 @@ const Home = () => {
                         onMouseEnter={() => handleMouseEnter(index)}
                         onMouseLeave={() => handleMouseLeave(index)}
                     >
-                        <div className="home-video-card-upper">
+                        <div className="home-video-card-upper" onClick={()=>handleVideoPage(video._id)}>
                             {hoveredVideoIndex === index ? (
                                 // Render video when hovered
                                 <video
@@ -86,7 +90,7 @@ const Home = () => {
                                 />
                             )}
 
-                            <div className="home-video-card-duration">
+                            <div className="home-video-card-duration" onClick={()=>handleVideoPage(video._id)}>
                                 {video.duration.toFixed(2)}
                             </div>
                         </div>
@@ -104,7 +108,7 @@ const Home = () => {
                                     />
                                 )}
                             </div>
-                            <div className="home-video-card-lower-details">
+                            <div className="home-video-card-lower-details" onClick={()=>handleVideoPage(video._id)}>
                                 <div className="home-video-card-lower-details-title">
                                     {video.title}
                                 </div>
